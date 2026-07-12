@@ -20,13 +20,14 @@
             justify-content: center;
             align-items: center;
             color: #fff;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .container {
             text-align: center;
-            padding: 20px 20px;
+            padding: 40px 20px;
             max-width: 800px;
+            width: 100%;
             position: relative;
         }
 
@@ -138,6 +139,7 @@
             font-size: 11px;
             letter-spacing: 0.5px;
             transition: color 0.3s ease;
+            text-decoration: none;
         }
 
         .contact-item:hover {
@@ -146,35 +148,6 @@
 
         .contact-icon {
             font-size: 12px;
-        }
-
-        .social-links {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            animation: fadeInUp 1s ease-out 1.3s both;
-        }
-
-        .social-link {
-            width: 30px;
-            height: 30px;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #d4af37;
-            text-decoration: none;
-            font-size: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: #d4af37;
-            color: #1a1a1a;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
 
         .decorative-element {
@@ -246,7 +219,7 @@
                 width: 0;
             }
             to {
-                width: 100px;
+                width: 80px;
             }
         }
 
@@ -261,18 +234,32 @@
             }
         }
 
+        /* Tablet */
         @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+                padding-top: 60px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
             .tagline {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             .coming-soon {
-                font-size: 9px;
-                letter-spacing: 3px;
+                font-size: 10px;
+                letter-spacing: 4px;
+            }
+
+            .subtitle {
+                font-size: 12px;
             }
 
             .services {
-                gap: 12px;
+                gap: 15px;
             }
 
             .service-item:not(:last-child)::after {
@@ -281,11 +268,146 @@
 
             .contact-info {
                 flex-direction: column;
-                gap: 12px;
+                gap: 15px;
             }
 
             .logo {
                 max-width: 120px;
+            }
+
+            .circle:nth-child(1) {
+                width: 200px;
+                height: 200px;
+            }
+
+            .circle:nth-child(2) {
+                width: 150px;
+                height: 150px;
+            }
+
+            .circle:nth-child(3) {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            body {
+                padding-top: 40px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .logo {
+                max-width: 100px;
+            }
+
+            .logo-container {
+                margin-bottom: 20px;
+            }
+
+            .divider {
+                margin: 15px auto;
+            }
+
+            .coming-soon {
+                font-size: 9px;
+                letter-spacing: 3px;
+                margin-bottom: 12px;
+            }
+
+            .tagline {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            .subtitle {
+                font-size: 11px;
+                margin-bottom: 20px;
+                line-height: 1.5;
+            }
+
+            .services {
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .service-item {
+                font-size: 8px;
+                letter-spacing: 1.5px;
+                padding: 0 8px;
+            }
+
+            .contact-section {
+                padding-top: 15px;
+            }
+
+            .stay-connected {
+                font-size: 8px;
+                letter-spacing: 3px;
+                margin-bottom: 12px;
+            }
+
+            .contact-info {
+                gap: 12px;
+            }
+
+            .contact-item {
+                font-size: 10px;
+                gap: 6px;
+            }
+
+            .contact-icon {
+                font-size: 11px;
+            }
+
+            .circle:nth-child(1) {
+                width: 150px;
+                height: 150px;
+                top: -50px;
+                right: -50px;
+            }
+
+            .circle:nth-child(2) {
+                width: 100px;
+                height: 100px;
+                bottom: -30px;
+                left: -30px;
+            }
+
+            .circle:nth-child(3) {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 360px) {
+            .container {
+                padding: 15px 10px;
+            }
+
+            .logo {
+                max-width: 85px;
+            }
+
+            .tagline {
+                font-size: 16px;
+            }
+
+            .subtitle {
+                font-size: 10px;
+            }
+
+            .service-item {
+                font-size: 7px;
+            }
+
+            .contact-item {
+                font-size: 9px;
             }
         }
     </style>
@@ -314,9 +436,9 @@
         </p>
 
         <div class="services">
-            <span class="service-item">Construction</span>
-            <span class="service-item">Architecture</span>
             <span class="service-item">Real Estate</span>
+            <span class="service-item">Construction</span>
+            <span class="service-item">Design</span>
         </div>
 
         <div class="contact-section">
@@ -332,8 +454,6 @@
                 </a>
             </div>
         </div>
-
-
     </div>
 </body>
 </html>
