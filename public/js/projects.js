@@ -21,12 +21,13 @@ const ProjectsModule = {
       return;
     }
 
-    container.innerHTML = data.map(project => `
+    container.innerHTML = data.map((project, index) => `
       <div class="project-card reveal" data-category="${project.category}">
         <div class="project-card-image">
           <img src="${project.image}" alt="${project.title}" loading="lazy"
                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 500%22%3E%3Crect fill=%22%23292929%22 width=%22800%22 height=%22500%22/%3E%3Ctext fill=%22%23555%22 font-family=%22Arial%22 font-size=%2224%22 text-anchor=%22middle%22 x=%22400%22 y=%22250%22%3E${encodeURIComponent(project.title)}%3C/text%3E%3C/svg%3E'">
           <span class="project-card-category">${project.category}</span>
+          <span class="project-card-number">${String(index + 1).padStart(2, '0')}</span>
         </div>
         <div class="project-card-content">
           <h3 class="project-card-title">${project.title}</h3>

@@ -241,8 +241,25 @@
     gap: 16px;
   }
 
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .projects-header-right {
+    text-align: left;
+  }
+
+  .projects-header-desc {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
   .project-card-content { padding: 16px; }
-  .project-card-title { font-size: 16px; }
+  .project-card-title { font-size: 16px; padding-left: 0; }
+  .project-card-content::before { display: none; }
+  .project-card-number { font-size: 36px; }
 
   /* Process */
   .process-timeline {
@@ -521,6 +538,7 @@
   .project-card-category { font-size: 8px; padding: 4px 10px; }
   .project-card-title { font-size: 14px; }
   .project-card-location { font-size: 12px; }
+  .project-card-number { display: none; }
 
   /* Credentials */
   .credentials-grid { grid-template-columns: 1fr 1fr; gap: 8px; }

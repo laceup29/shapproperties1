@@ -903,11 +903,46 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 /* ---------- PROJECTS ---------- */
+.projects-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 20%, var(--gold) 80%, transparent 100%);
+  opacity: 0.3;
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.projects-header-left {
+  flex: 1;
+}
+
+.projects-header-right {
+  flex: 1;
+  text-align: right;
+}
+
+.projects-header-desc {
+  font-size: clamp(14px, 1.1vw, 16px);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 450px;
+  margin-left: auto;
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 48px;
 }
 
 .project-card {
@@ -916,17 +951,44 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   overflow: hidden;
   transition: var(--transition);
   cursor: pointer;
+  position: relative;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover::after {
+  transform: scaleX(1);
 }
 
 .project-card:hover {
   border-color: var(--gold);
   transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
 .project-card-image {
   aspect-ratio: 16/10;
   overflow: hidden;
   position: relative;
+}
+
+.project-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(24,24,24,0.6) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .project-card-image img {
@@ -952,10 +1014,34 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   color: var(--bg-dark);
   background: var(--gold);
   padding: 6px 14px;
+  z-index: 1;
+}
+
+.project-card-number {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  font-family: var(--font-primary);
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.1);
+  line-height: 1;
+  z-index: 1;
 }
 
 .project-card-content {
   padding: 24px;
+  position: relative;
+}
+
+.project-card-content::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
 }
 
 .project-card-title {
@@ -965,6 +1051,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   letter-spacing: 0.5px;
   color: var(--white);
   margin-bottom: 8px;
+  padding-left: 52px;
 }
 
 .project-card-location {
