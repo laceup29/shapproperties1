@@ -307,6 +307,8 @@
     gap: 16px;
   }
 
+  .team-card-image { aspect-ratio: 16/10; }
+
   /* Contact */
   .contact-info-item {
     padding: 16px;
