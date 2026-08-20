@@ -830,10 +830,31 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 /* ---------- WHY US / FEATURES ---------- */
+.why-us-section {
+  position: relative;
+  padding: clamp(80px, 10vw, 140px) 0;
+  overflow: hidden;
+}
+
+.why-us-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: high-quality;
+}
+
+.why-us-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(24,24,24,0.92) 0%, rgba(24,24,24,0.88) 50%, rgba(24,24,24,0.94) 100%);
+}
+
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
   margin-top: 48px;
 }
 

@@ -12,6 +12,7 @@
   <link rel="canonical" href="https://sharpproperties.com">
   <link rel="preload" as="image" href="/assets/images/banner2.jpg">
   <link rel="preload" as="image" href="/assets/images/team.jpg">
+  <link rel="preload" as="image" href="/assets/images/why-us-bg.jpg">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/responsive.css">
   <link rel="stylesheet" href="/css/animations.css">
@@ -195,15 +196,17 @@
 </section>
 
 <!-- ========== HOME SECTION 04 — WHY US ========== -->
-<section class="section section-secondary" id="why-us">
+<section class="why-us-section" id="why-us">
+  <div class="why-us-bg" style="background-image: url('/assets/images/why-us-bg.jpg');"></div>
+  <div class="why-us-overlay"></div>
   <div class="container">
-    <div class="reveal-up" style="text-align:center;max-width:600px;margin:0 auto;">
+    <div class="reveal-up" style="text-align:center;max-width:600px;margin:0 auto;position:relative;z-index:2;">
       <div class="label">WHY SHARP PROPERTIES</div>
       <div class="gold-line" style="margin:0 auto 24px;"></div>
       <h2 class="section-title">BUILT ON QUALITY.<br>DRIVEN BY TRUST.</h2>
     </div>
 
-    <div class="features-grid">
+    <div class="features-grid" style="position:relative;z-index:2;">
       <div class="feature-item reveal-up delay-1">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
