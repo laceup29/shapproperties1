@@ -377,8 +377,10 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center right;
   background-repeat: no-repeat;
+  image-rendering: high-quality;
+  -webkit-font-smoothing: antialiased;
 }
 
 .hero-overlay-diagonal {
