@@ -1,6 +1,9 @@
 /* ============================================
    SHARP PROPERTIES — CONTACT FORM
+   WhatsApp Integration
    ============================================ */
+
+const WHATSAPP_NUMBER = '923321738817';
 
 const ContactForm = {
   form: null,
@@ -14,7 +17,7 @@ const ContactForm = {
     this.form.addEventListener('submit', (e) => this.handleSubmit(e));
   },
 
-  async handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
 
     const formData = {
@@ -25,36 +28,44 @@ const ContactForm = {
       message: this.form.querySelector('[name="message"]').value.trim()
     };
 
-    // Client-side validation
     const errors = this.validate(formData);
     if (errors.length) {
       this.showError(errors[0]);
       return;
     }
 
-    this.setLoading(true);
     this.clearMessages();
+    this.openWhatsApp(formData);
+    this.form.reset();
+    this.showSuccess('Redirecting to WhatsApp...');
+  },
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+  openWhatsApp(data) {
+    const serviceLabels = {
+      'general-contracting': 'General Contracting',
+      'renovation-remodeling': 'Renovation & Remodeling',
+      'design-build': 'Design & Build',
+      'infrastructure-development': 'Infrastructure Development',
+      'security-safety': 'Security & Safety',
+      'other': 'Other'
+    };
 
-      const data = await response.json();
+    const serviceLabel = serviceLabels[data.service] || data.service;
 
-      if (data.success) {
-        this.showSuccess(data.message);
-        this.form.reset();
-      } else {
-        this.showError(data.message || 'Please check your information and try again.');
-      }
-    } catch (error) {
-      this.showError('Unable to connect to the server. Please try again later.');
-    } finally {
-      this.setLoading(false);
-    }
+    const msg = [
+      '*New Inquiry — Sharp Properties*',
+      '',
+      `*Name:* ${data.name}`,
+      `*Email:* ${data.email}`,
+      `*Phone:* ${data.phone}`,
+      `*Service:* ${serviceLabel}`,
+      '',
+      '*Project Details:*',
+      data.message
+    ].join('%0A');
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+    window.open(url, '_blank');
   },
 
   validate(data) {
@@ -93,13 +104,6 @@ const ContactForm = {
   clearMessages() {
     const existing = this.form.querySelectorAll('.form-error-msg, .form-success');
     existing.forEach(el => el.remove());
-  },
-
-  setLoading(loading) {
-    if (this.submitBtn) {
-      this.submitBtn.disabled = loading;
-      this.submitBtn.textContent = loading ? 'SENDING...' : 'SEND INQUIRY →';
-    }
   }
 };
 
