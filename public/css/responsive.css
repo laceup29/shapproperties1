@@ -417,6 +417,15 @@
     max-height: 350px;
   }
 
+  /* Banner Section */
+  .banner-section {
+    padding: clamp(60px, 8vw, 100px) 0;
+  }
+
+  .banner-section-bg {
+    background-position: center 40%;
+  }
+
   /* Team roles mobile */
   .team-roles-row { flex-direction: column; gap: 0; }
 }
@@ -508,6 +517,15 @@
 
   .team-banner-image-border {
     display: none;
+  }
+
+  /* Banner Section */
+  .banner-section {
+    padding: clamp(48px, 6vw, 80px) 0;
+  }
+
+  .banner-section-bg {
+    background-position: center 35%;
   }
 
   .hero-cta-text {
