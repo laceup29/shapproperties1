@@ -359,6 +359,37 @@
   /* Reveal animations */
   .reveal { transform: translateY(20px); }
 
+  /* Team Banner */
+  .team-banner { padding: clamp(60px, 8vw, 100px) 0; }
+
+  .team-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .team-banner-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .team-banner-stats {
+    gap: 24px;
+  }
+
+  .team-stat-number {
+    font-size: clamp(28px, 6vw, 40px);
+  }
+
+  .team-stat-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .team-banner-image {
+    aspect-ratio: 16/10;
+    max-height: 350px;
+  }
+
   /* Team roles mobile */
   .team-roles-row { flex-direction: column; gap: 0; }
 }
@@ -418,6 +449,37 @@
   }
 
   .hero-arrow {
+    display: none;
+  }
+
+  /* Team Banner */
+  .team-banner { padding: 48px 0; }
+
+  .team-banner-stats {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .team-stat {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .team-stat-number {
+    font-size: 28px;
+  }
+
+  .team-stat-label {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+
+  .team-banner-image {
+    aspect-ratio: 16/9;
+    max-height: 260px;
+  }
+
+  .team-banner-image-border {
     display: none;
   }
 
@@ -527,6 +589,19 @@
 
   .hero-bg {
     background-position: center 65%;
+  }
+
+  /* Team Banner */
+  .team-banner-stats {
+    gap: 12px;
+  }
+
+  .team-stat-number {
+    font-size: 24px;
+  }
+
+  .team-stat-label {
+    font-size: 8px;
   }
 
   .hero-cta-text { font-size: 8px; }
