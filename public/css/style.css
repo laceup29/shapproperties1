@@ -219,6 +219,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 .logo-icon {
   width: 42px;
   height: 42px;
+  object-fit: contain;
 }
 
 .logo-text {
