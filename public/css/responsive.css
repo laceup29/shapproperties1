@@ -87,6 +87,10 @@
     text-align: center;
   }
 
+  .hero-content-left {
+    text-align: left;
+  }
+
   .hero-badge {
     font-size: 10px;
     margin-bottom: 16px;
@@ -96,9 +100,17 @@
     font-size: clamp(36px, 10vw, 56px);
   }
 
+  .hero-title-left {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
   .hero-description {
     font-size: 14px;
     max-width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .hero-description-left {
     margin-bottom: 28px;
   }
 
@@ -110,11 +122,48 @@
     margin: 0 auto;
   }
 
+  .hero-buttons-left {
+    justify-content: flex-start;
+    max-width: 320px;
+    margin: 0;
+  }
+
   .hero-buttons .btn {
     width: 100%;
     justify-content: center;
     padding: 14px 24px;
     font-size: 12px;
+  }
+
+  .hero-diagonal {
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  }
+
+  .hero-overlay-diagonal {
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+  }
+
+  .hero-split .hero-overlay {
+    background: linear-gradient(to bottom, rgba(24,24,24,0.92) 0%, rgba(24,24,24,0.75) 60%, rgba(24,24,24,0.5) 100%);
+  }
+
+  .hero-slide-indicator {
+    margin-top: 32px;
+  }
+
+  .hero-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-arrow-left {
+    left: 12px;
+  }
+
+  .hero-arrow-right {
+    right: 12px;
   }
 
   /* Hero CTA Bar */
@@ -322,10 +371,30 @@
     font-size: clamp(32px, 12vw, 48px);
   }
 
+  .hero-title-left {
+    font-size: clamp(28px, 10vw, 40px);
+  }
+
   .hero-description {
     font-size: 13px;
     line-height: 1.7;
     margin-bottom: 24px;
+  }
+
+  .hero-slide-indicator {
+    margin-top: 24px;
+  }
+
+  .hero-slide-current {
+    font-size: 24px;
+  }
+
+  .hero-slide-total {
+    font-size: 14px;
+  }
+
+  .hero-arrow {
+    display: none;
   }
 
   .hero-cta-text {
