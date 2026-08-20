@@ -1,20 +1,61 @@
 {
   "version": 2,
   "name": "sharp-properties",
+  "outputDirectory": "public",
   "builds": [
     {
-      "src": "**/*",
+      "src": "public/**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/Images/(.*)",
-      "dest": "/Images/$1"
+      "src": "/assets/(.*)",
+      "dest": "/public/assets/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/public/js/$1"
+    },
+    {
+      "src": "/about",
+      "dest": "/public/about.html"
+    },
+    {
+      "src": "/services",
+      "dest": "/public/services.html"
+    },
+    {
+      "src": "/projects",
+      "dest": "/public/projects.html"
+    },
+    {
+      "src": "/project-details",
+      "dest": "/public/project-details.html"
+    },
+    {
+      "src": "/team",
+      "dest": "/public/team.html"
+    },
+    {
+      "src": "/contact",
+      "dest": "/public/contact.html"
+    },
+    {
+      "src": "/privacy",
+      "dest": "/public/privacy.html"
+    },
+    {
+      "src": "/terms",
+      "dest": "/public/terms.html"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/public/index.html"
     }
   ]
 }
