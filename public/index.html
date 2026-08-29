@@ -247,9 +247,12 @@
   </div>
 </section>
 
-<!-- ========== BANNER SECTION ========== -->
-<section class="banner-section">
-  <div class="banner-section-bg" style="background-image: url('/assets/images/banner-hd.jpg');"></div>
+<!-- ========== BANNER SECTION (SLIDER) ========== -->
+<section class="banner-section" id="bannerSlider">
+  <div class="banner-slider-wrap">
+    <div class="banner-slide active" style="background-image: url('/assets/images/banner-hd.jpg');"></div>
+    <div class="banner-slide" style="background-image: url('/assets/images/banner4.jpeg');"></div>
+  </div>
   <div class="banner-section-overlay"></div>
   <div class="container">
     <div class="banner-section-content reveal-up">
@@ -257,6 +260,10 @@
       <p class="banner-section-desc">From concept to completion, we deliver excellence in every project.</p>
       <a href="/contact" class="btn btn-primary">START YOUR PROJECT <span class="btn-arrow">→</span></a>
     </div>
+  </div>
+  <div class="banner-dots">
+    <span class="banner-dot active" data-index="0"></span>
+    <span class="banner-dot" data-index="1"></span>
   </div>
 </section>
 
@@ -549,6 +556,26 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof ScrollAnimations !== 'undefined') ScrollAnimations.init();
   }
 
+  // Banner Slider
+  var slides = document.querySelectorAll('.banner-slide');
+  var dots = document.querySelectorAll('.banner-dot');
+  var current = 0;
+  function goToSlide(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  function nextSlide() {
+    goToSlide((current + 1) % slides.length);
+  }
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      goToSlide(parseInt(this.dataset.index));
+    });
+  });
+  setInterval(nextSlide, 3000);
 });
 </script>
 </body>

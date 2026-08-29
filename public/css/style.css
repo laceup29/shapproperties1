@@ -930,13 +930,46 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   overflow: hidden;
 }
 
-.banner-section-bg {
+.banner-slider-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.banner-slide {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   image-rendering: high-quality;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.banner-slide.active {
+  opacity: 1;
+}
+.banner-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+.banner-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  border: 2px solid rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.banner-dot.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.2);
 }
 
 .banner-section-overlay {
