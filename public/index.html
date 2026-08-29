@@ -14,6 +14,7 @@
   <link rel="preload" as="image" href="/assets/images/team.jpg">
   <link rel="preload" as="image" href="/assets/images/why-us-bg.jpg">
   <link rel="preload" as="image" href="/assets/images/banner-hd.jpg">
+  <link rel="preload" as="image" href="/assets/images/banner4.jpeg">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/responsive.css">
   <link rel="stylesheet" href="/css/animations.css">
@@ -60,7 +61,8 @@
 
 <!-- ========== HOME SECTION 01 — HERO ========== -->
 <section class="hero" id="home">
-  <div class="hero-bg" style="background-image: url('/assets/images/banner2.jpg');"></div>
+  <div class="hero-bg hero-slide active" style="background-image: url('/assets/images/banner2.jpg');"></div>
+  <div class="hero-bg hero-slide" style="background-image: url('/assets/images/banner4.jpeg');"></div>
   <div class="hero-overlay-diagonal"></div>
 
   <div class="container">
@@ -74,7 +76,7 @@
         <a href="/contact" class="btn btn-primary">GET A QUOTE <span class="btn-arrow">→</span></a>
       </div>
       <div class="hero-slide-indicator">
-        <span class="hero-slide-current">01</span>/<span class="hero-slide-total">04</span>
+        <span class="hero-slide-current">01</span>/<span class="hero-slide-total">02</span>
       </div>
     </div>
   </div>
@@ -247,12 +249,9 @@
   </div>
 </section>
 
-<!-- ========== BANNER SECTION (SLIDER) ========== -->
-<section class="banner-section" id="bannerSlider">
-  <div class="banner-slider-wrap">
-    <div class="banner-slide active" style="background-image: url('/assets/images/banner-hd.jpg');"></div>
-    <div class="banner-slide" style="background-image: url('/assets/images/banner4.jpeg');"></div>
-  </div>
+<!-- ========== BANNER SECTION ========== -->
+<section class="banner-section">
+  <div class="banner-section-bg" style="background-image: url('/assets/images/banner-hd.jpg');"></div>
   <div class="banner-section-overlay"></div>
   <div class="container">
     <div class="banner-section-content reveal-up">
@@ -260,10 +259,6 @@
       <p class="banner-section-desc">From concept to completion, we deliver excellence in every project.</p>
       <a href="/contact" class="btn btn-primary">START YOUR PROJECT <span class="btn-arrow">→</span></a>
     </div>
-  </div>
-  <div class="banner-dots">
-    <span class="banner-dot active" data-index="0"></span>
-    <span class="banner-dot" data-index="1"></span>
   </div>
 </section>
 
@@ -556,26 +551,39 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof ScrollAnimations !== 'undefined') ScrollAnimations.init();
   }
 
-  // Banner Slider
-  var slides = document.querySelectorAll('.banner-slide');
-  var dots = document.querySelectorAll('.banner-dot');
-  var current = 0;
-  function goToSlide(index) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = index;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
+  // Hero Slider
+  var heroSlides = document.querySelectorAll('.hero-slide');
+  var heroCurrent = 0;
+  var heroTotal = heroSlides.length;
+  var heroIndicator = document.querySelector('.hero-slide-current');
+  var heroTimer;
+
+  function heroGoTo(index) {
+    heroSlides[heroCurrent].classList.remove('active');
+    heroCurrent = index;
+    heroSlides[heroCurrent].classList.add('active');
+    if (heroIndicator) heroIndicator.textContent = String(heroCurrent + 1).padStart(2, '0');
   }
-  function nextSlide() {
-    goToSlide((current + 1) % slides.length);
+
+  function heroNext() {
+    heroGoTo((heroCurrent + 1) % heroTotal);
   }
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function() {
-      goToSlide(parseInt(this.dataset.index));
-    });
-  });
-  setInterval(nextSlide, 3000);
+
+  function heroPrev() {
+    heroGoTo((heroCurrent - 1 + heroTotal) % heroTotal);
+  }
+
+  function heroResetTimer() {
+    clearInterval(heroTimer);
+    heroTimer = setInterval(heroNext, 3000);
+  }
+
+  var heroArrowLeft = document.querySelector('.hero-arrow-left');
+  var heroArrowRight = document.querySelector('.hero-arrow-right');
+  if (heroArrowLeft) heroArrowLeft.addEventListener('click', function() { heroPrev(); heroResetTimer(); });
+  if (heroArrowRight) heroArrowRight.addEventListener('click', function() { heroNext(); heroResetTimer(); });
+
+  heroResetTimer();
 });
 </script>
 </body>

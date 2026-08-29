@@ -422,7 +422,7 @@
     padding: clamp(60px, 8vw, 100px) 0;
   }
 
-  .banner-slide {
+  .banner-section-bg {
     background-position: center 40%;
   }
 
@@ -524,7 +524,7 @@
     padding: clamp(48px, 6vw, 80px) 0;
   }
 
-  .banner-slide {
+  .banner-section-bg {
     background-position: center 35%;
   }
 
