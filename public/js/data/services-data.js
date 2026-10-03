@@ -45,7 +45,7 @@ const SERVICES = [
       'Single responsibility for entire project'
     ],
     process: ['Initial consultation', 'Concept design', 'Detailed planning', 'Construction', 'Completion and handover'],
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80'
+    image: '/assets/images/build.jpg'
   },
   {
     id: 'infrastructure-development',
@@ -61,7 +61,7 @@ const SERVICES = [
       'Long-lasting infrastructure solutions'
     ],
     process: ['Site survey and analysis', 'Infrastructure planning', 'Earthworks', 'Utility installation', 'Quality verification'],
-    image: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=600&q=80'
+    image: '/assets/images/3d-building.jpg'
   },
   {
     id: 'security-safety',
@@ -77,6 +77,6 @@ const SERVICES = [
       'Regulatory compliance'
     ],
     process: ['Safety assessment', 'Plan development', 'Implementation', 'Monitoring and audits', 'Continuous improvement'],
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80'
+    image: '/assets/images/Camera.jpg'
   }
 ];

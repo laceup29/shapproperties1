@@ -182,10 +182,88 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   transform: translateX(4px);
 }
 
+/* ---------- TOP BAR ---------- */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border);
+}
+
+.top-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.top-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-family: var(--font-body);
+}
+
+.top-bar-item svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-bar-social {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.top-bar-social:hover {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+
+.top-bar-social:hover svg {
+  stroke: var(--bg-dark);
+}
+
+.top-bar-social svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--text-secondary);
+  fill: none;
+  stroke-width: 2;
+}
+
 /* ---------- HEADER ---------- */
 .header {
   position: fixed;
-  top: 0;
+  top: 40px;
   left: 0;
   right: 0;
   z-index: 1000;
@@ -1029,18 +1107,19 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 .credential-logo {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.08);
   border-radius: 50%;
+  padding: 16px;
 }
 
 .credential-logo img {
-  max-width: 60px;
-  max-height: 60px;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 

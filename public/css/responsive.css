@@ -17,6 +17,8 @@
   .header-cta-desktop { display: none; }
   .hamburger { display: flex; }
   .mobile-nav { display: flex; }
+  .top-bar-left { gap: 16px; }
+  .top-bar-item { font-size: 12px; }
 
   .hero {
     min-height: 100vh;
@@ -80,7 +82,15 @@
     padding: clamp(40px, 6vw, 80px) 0;
   }
 
+  /* Top Bar */
+  .top-bar { height: 36px; }
+  .top-bar-item { font-size: 11px; gap: 4px; }
+  .top-bar-left { gap: 12px; }
+  .top-bar-social { width: 24px; height: 24px; }
+  .top-bar-social svg { width: 10px; height: 10px; }
+
   /* Header */
+  .header { top: 36px; }
   .logo-icon { width: 36px; height: 36px; }
   .logo-text { font-size: 15px; }
   .logo-text span { font-size: 8px; letter-spacing: 2px; }
@@ -315,7 +325,7 @@
   }
 
   .credential-item { padding: 20px 12px; }
-  .credential-logo { width: 60px; height: 60px; }
+  .credential-logo { width: 80px; height: 80px; }
   .credential-name { font-size: 11px; letter-spacing: 0.5px; }
 
   /* Team */
@@ -580,7 +590,7 @@
   /* Credentials */
   .credentials-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .credential-item { padding: 16px 8px; }
-  .credential-logo { width: 48px; height: 48px; }
+  .credential-logo { width: 60px; height: 60px; }
   .credential-logo svg { width: 24px; height: 24px; }
   .credential-name { font-size: 10px; }
 
